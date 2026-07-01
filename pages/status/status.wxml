@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="section">
+    <view class="title">今晚身体状态</view>
+    <view class="subtitle">身体状态会影响风险提醒，酒局中也可以更新。</view>
+  </view>
+
+  <view class="section card">
+    <view class="field">
+      <view class="label">是否空腹</view>
+      <switch checked="{{form.isEmptyStomach}}" bindchange="onEmptyStomachChange" />
+    </view>
+
+    <view class="field">
+      <view class="label">睡眠状态</view>
+      <picker range="{{sleepOptions}}" value="{{sleepIndex}}" bindchange="onSleepChange">
+        <view class="input">{{form.sleepQuality}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">疲劳程度</view>
+      <picker range="{{fatigueOptions}}" value="{{fatigueIndex}}" bindchange="onFatigueChange">
+        <view class="input">{{form.fatigueLevel}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">正在服药</view>
+      <switch checked="{{form.isMedicated}}" bindchange="onMedicatedChange" />
+    </view>
+
+    <view class="field">
+      <view class="label">身体不适</view>
+      <switch checked="{{form.isUnwell}}" bindchange="onUnwellChange" />
+    </view>
+
+    <view wx:if="{{form.isMedicated || form.isUnwell}}" class="warning">
+      今天身体状态不适合饮酒，建议避免饮酒或停止饮酒。
+    </view>
+  </view>
+
+  <button class="btn btn-primary" bindtap="save">保存状态</button>
+</view>
