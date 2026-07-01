@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="section">
+    <view class="title">今晚酒局状态</view>
+    <view class="subtitle">记录每一次饮酒，及时看见风险变化。</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">当前酒局</view>
+    <view class="value">{{sessionStatusText}}</view>
+    <view class="subtitle">{{sessionSummaryText}}</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">当前风险</view>
+    <view class="value {{risk.level.className}}">{{risk.level.text}}</view>
+    <view class="subtitle">风险分：{{risk.score}}</view>
+  </view>
+
+  <view class="section grid">
+    <view class="card">
+      <view class="label">纯酒精</view>
+      <view class="value">{{risk.totalAlcoholGrams}}g</view>
+    </view>
+    <view class="card">
+      <view class="label">标准杯</view>
+      <view class="value">{{risk.standardDrinks}}</view>
+    </view>
+    <view class="card">
+      <view class="label">记录次数</view>
+      <view class="value">{{risk.drinkCount}}</view>
+    </view>
+    <view class="card">
+      <view class="label">饮酒速度</view>
+      <view class="value">{{risk.speed}}</view>
+    </view>
+  </view>
+
+  <view class="section card">
+    <view class="label">风险建议</view>
+    <view class="subtitle">{{advice.action}}</view>
+  </view>
+
+  <view class="section">
+    <button class="btn btn-primary" bindtap="goAddDrink">记一杯</button>
+    <button class="btn btn-secondary" bindtap="goStatus">更新身体状态</button>
+    <button class="btn btn-secondary" bindtap="goAdvice">查看饮酒建议</button>
+    <button class="btn btn-secondary" bindtap="goProfile">个人酒量档案</button>
+    <button class="btn btn-secondary" bindtap="handleSession">{{sessionButtonText}}</button>
+  </view>
+</view>
