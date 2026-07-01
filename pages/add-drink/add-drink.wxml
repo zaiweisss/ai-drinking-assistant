@@ -1,0 +1,55 @@
+<view class="page">
+  <view class="section">
+    <view class="title">记一杯</view>
+    <view class="subtitle">选择常见酒类，或手动调整容量和度数。</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">快捷选项</view>
+    <view class="quick-list">
+      <button wx:for="{{quickOptions}}" wx:key="name" class="quick-btn" data-index="{{index}}" bindtap="selectQuick">
+        {{item.name}}
+      </button>
+    </view>
+  </view>
+
+  <view class="section card">
+    <view class="field">
+      <view class="label">酒类型</view>
+      <picker range="{{typeOptions}}" value="{{typeIndex}}" bindchange="onTypeChange">
+        <view class="input">{{form.alcoholType}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <view class="label">品牌名称</view>
+      <input class="input" value="{{form.brand}}" placeholder="选填" bindinput="onBrandInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">酒精度数</view>
+      <input class="input" type="digit" value="{{form.abvPercent}}" placeholder="例如：4" bindinput="onAbvInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">容量 ml</view>
+      <input class="input" type="number" value="{{form.volumeMl}}" placeholder="例如：500" bindinput="onVolumeInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">数量</view>
+      <input class="input" type="digit" value="{{form.quantity}}" placeholder="例如：1" bindinput="onQuantityInput" />
+    </view>
+
+    <view class="field">
+      <view class="label">饮酒速度</view>
+      <picker range="{{speedOptions}}" value="{{speedIndex}}" bindchange="onSpeedChange">
+        <view class="input">{{form.drinkingSpeed}}</view>
+      </picker>
+    </view>
+
+    <view class="muted">预计纯酒精：{{previewAlcoholGrams}}g</view>
+  </view>
+
+  <button class="btn btn-primary" bindtap="save">保存记录</button>
+</view>
