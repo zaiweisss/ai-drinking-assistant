@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="section">
+    <view class="title">饮酒建议</view>
+    <view class="subtitle">当前为规则建议，根据饮酒记录和身体状态生成，不承诺真实 AI 判断。</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">当前风险</view>
+    <view class="value {{risk.level.className}}">{{risk.level.text}}</view>
+    <view class="subtitle">风险分：{{risk.score}}，已摄入 {{risk.totalAlcoholGrams}}g 纯酒精，约 {{risk.standardDrinks}} 标准杯。</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">主要原因</view>
+    <view class="subtitle">{{advice.summary}}</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">接下来 30 分钟</view>
+    <view class="subtitle">{{advice.action}}</view>
+  </view>
+
+  <view class="section card">
+    <view class="label">酒桌话术</view>
+    <view class="script">{{advice.script}}</view>
+  </view>
+</view>
