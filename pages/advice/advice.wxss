@@ -1,0 +1,8 @@
+.script {
+  margin-top: 16rpx;
+  padding: 24rpx;
+  background: #f9fafb;
+  border-left: 6rpx solid #111827;
+  border-radius: 8rpx;
+  line-height: 1.6;
+}
